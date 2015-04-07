@@ -6,13 +6,16 @@ module Cookieconsent
     if cookies['cookie-consent'] == 'yes'
       capture(&block)
     else
-      buffer = "".html_safe
-      buffer += I18n.t('cookieconsent.no-consent')
-      buffer += " "
-      buffer += link_to I18n.t('cookieconsent.no-consent-link'), url_for('cookie-consent' => 'yes')
+      buffer = "<div class='cookieconsent'>".html_safe
+      buffer += "<p>#{I18n.t('cookieconsent.no-consent')}</p>".html_safe
+      buffer += link_to I18n.t('cookieconsent.no-consent-link'), url_for('cookie-consent' => 'yes'), {class: "cookieconsent-link"}
+      buffer += "</div>".html_safe
     end
   end
 end
 
 ActionView::Base.send :include, Cookieconsent
-I18n.load_path += [File.expand_path('../../config/locales/nl.yml', __FILE__)]
+
+locales_dir = File.expand_path('../../config/locales/', __FILE__)
+files = Dir[File.join(locales_dir, '*.yml')]
+I18n.load_path += files
