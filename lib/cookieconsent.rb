@@ -1,15 +1,15 @@
 require "cookieconsent/version"
 
 module Cookieconsent
-  def tracking_consent(&block)
-    cookies['cookies-consent'] = params['cookies-consent'] unless params['cookies-consent'].nil?
-    if cookies['cookies-consent'] == 'yes'
+  def cookie_consent(&block)
+    cookies['cookie-consent'] = params['cookie-consent'] unless params['cookie-consent'].nil?
+    if cookies['cookie-consent'] == 'yes'
       capture(&block)
     else
       buffer = "".html_safe
       buffer += I18n.t('cookieconsent.no-consent')
       buffer += " "
-      buffer += link_to I18n.t('cookieconsent.no-consent-link'), url_for('cookies-consent' => 'yes')
+      buffer += link_to I18n.t('cookieconsent.no-consent-link'), url_for('cookie-consent' => 'yes')
     end
   end
 end
