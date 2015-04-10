@@ -2,3 +2,7 @@ en:
   cookieconsent:
     no-consent: "We can only show this content when you consent to the usage of tracking cookies"
     no-consent-link: "Accept cookies"
+    bar:
+      no-consent: 'To use the full capabilities of this site you have to allow cookies.'
+      no-consent-link: 'Allow cookies'
+      no-consent-link-deny: 'Deny'
