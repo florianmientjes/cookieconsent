@@ -1,8 +1,6 @@
 # Cookieconsent
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/cookieconsent`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+The cookieconsent gem adds a few helpers to help you add user consent implementation to your website.
 
 ## Installation
 
@@ -22,7 +20,68 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+The cookie_consent_bar helper will add the bar to your html
+
+```ruby
+	= cookie_consent_bar
+```
+
+Pass a block into the cookie_consent helper with content whichs is only loaded if cookie consent is given
+
+```ruby
+	= cookie_consent do
+      # Tracking code, facebook likebox, etc.
+```
+
+CookieConsent has a default locale file, you can override these:
+
+```
+  cookieconsent:
+    no-consent: 'To see this content you need to allow cookies on this website.'
+    no-consent-link: 'Allow cookies'
+    bar:
+      no-consent: 'To use the full capabilities of this site you have to allow cookies.'
+      no-consent-link: 'Allow cookies'
+      no-consent-link-deny: 'Deny'
+ ```
+
+By default CookieConsent is unstyled, example styling with scss:
+
+```
+
+.cookieconsent{
+  border:1px dashed grey;
+  text-align:center;
+  padding:20px;
+  font-size:14px;
+  .cookieconsent-link{
+  	@extend .btn;
+    margin-top:20px;
+  }
+}
+
+
+.cookieconsentbar{
+  background:rgba(#000, 0.8);
+  text-align:center;
+  color:#fff;
+  padding:10px;
+  font-size:14px;
+  position:fixed;
+  bottom:0;
+  right:0;
+  left:0;
+  .cookieconsent-link-allow{
+  	@extend .btn;
+    margin:0 20px;
+  }
+  .cookieconsent-link-deny{
+    color:#fff;
+  }
+}
+
+```
+
 
 ## Development
 
