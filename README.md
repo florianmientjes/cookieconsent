@@ -7,7 +7,7 @@ The cookieconsent gem adds a few helpers to help you add user consent implementa
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'cookieconsent'
+gem 'cookieconsent', github: 'florianmientjes/cookieconsent', branch: 'master'
 ```
 
 And then execute:
@@ -91,7 +91,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/cookieconsent/fork )
+1. Fork it ( https://github.com/florianmientjes/cookieconsent/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
